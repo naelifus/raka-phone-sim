@@ -19,7 +19,7 @@ function nextChat() {
     bubble.innerText = `${chats[i].sender}: ${chats[i].text}`;
     chat.appendChild(bubble);
 
-    // efek suara notif WhatsApp (opsional)
+    // efek suara notif (opsional)
     const sound = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
     sound.play();
 
@@ -31,5 +31,33 @@ function nextChat() {
 window.addEventListener("load", () => {
   const phone = document.querySelector(".phone");
   phone.classList.add("active"); // efek fade-in layar hidup
-  nextChat(); // mulai simulasi chat masuk
+
+  // notif startup
+  setTimeout(() => {
+    const notif = document.createElement("div");
+    notif.className = "notif";
+    notif.innerText = "🔔 WhatsApp aktif";
+    document.body.appendChild(notif);
+
+    setTimeout(() => notif.remove(), 3000);
+  }, 1500);
+
+  // popup pengingat
+  setTimeout(() => {
+    const reminder = document.createElement("div");
+    reminder.className = "popup";
+    reminder.innerHTML = "<h3>Pengingat</h3><p>Meeting jam 9 pagi besok!</p>";
+
+    const closeBtn = document.createElement("button");
+    closeBtn.innerText = "Tutup";
+    closeBtn.onclick = () => reminder.remove();
+    reminder.appendChild(closeBtn);
+
+    document.body.appendChild(reminder);
+  }, 4000);
+
+  // mulai simulasi chat masuk
+  nextChat();
+});
+
 });
