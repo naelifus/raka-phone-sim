@@ -1,6 +1,52 @@
-body { display:flex; justify-content:center; align-items:center; height:100vh; background:#ece5dd: }
-.phone { width:360px: height:640px; border:16px solid black; border-radius:40px; background:#fff; display:flex; flex-direction:colum; }
-.screen { flex:1; padding:10px; overflow-y:auto; }
-.chat { max-width:70%; padding:8px; margin:5px; border-radius:10px; }
-.left { background:#f0f0f0; align-self:flex-start; }
-.right [ background:3dcf9c6; align-self:flex-end; }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #ece5dd;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.phone {
+  width: 360px;
+  height: 640px;
+  border: 16px solid black;
+  border-radius: 40px;
+  background: #000;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.screen {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 25px;
+}
+
+.chat {
+  max-width: 70%;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 10px;
+  animation: fadeIn 0.8s ease;
+}
+
+.left {
+  background: #f0f0f0;
+  align-self: flex-start;
+}
+
+.right {
+  background: #dcf9c6;
+  align-self: flex-end;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
